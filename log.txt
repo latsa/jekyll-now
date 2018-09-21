@@ -1,0 +1,6 @@
+Configuration file: F:/Projects/Projects (Web)/My Blog on GitHub/latsa.github.io/_config.yml
+            Source: F:/Projects/Projects (Web)/My Blog on GitHub/latsa.github.io
+       Destination: F:/Projects/Projects (Web)/My Blog on GitHub/latsa.github.io/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+jekyll 3.8.4 | Error:  GET https://api.github.com/gists/11ad93916abd62489d66: 401 - Bad credentials // See: https://developer.github.com/v3

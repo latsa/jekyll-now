@@ -1,17 +1,34 @@
 ---
 layout: default
 ---
-
 <article class="post">
-  <h1>{{ page.title }}</h1>
-
+{% if page.category == 'link' %}
+    <h1><a href="{{ page.external-url }}" class="external-link">{{ page.title }}</a></h1>
+{% elsif page.category == 'project' and site.github_user %}
+    <h1><a href="https://github.com/{{ site.github_user }}/{{ page.title }}" class="github-project-link">{{ page.title }}</a></h1>
+{% else %}
+    <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ page.title }}</a></h1>
+{% endif %}
+  {% include post/meta.html %}
   <div class="entry">
     {{ content }}
   </div>
 
-  <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
+  <div id="page-navigation">
+    <div class="previous">
+{% if page.previous.url %}
+      <a href="{{ site.baseurl }}{{ page.previous.url }}" title="Previous Post:
+{{page.previous.title}}">{{page.previous.title}}</a>
+{% endif %}
+    </div>
+
+    <div class="next">
+{% if page.next.url %}
+      <a href="{{ site.baseurl }}{{ page.next.url }}" title="next Post:
+{{page.next.title}}">{{page.next.title}}</a>
+{% endif %}
+    </div>
   </div>
 
-  {% include disqus.html %}
+  {% include disqus.html disqus_identifier=page.disqus_identifier %}
 </article>
